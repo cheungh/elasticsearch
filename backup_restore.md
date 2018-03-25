@@ -1,10 +1,10 @@
 ## Example on Snapshot Backup and Restore
 
-### Create test data
-download sample data from elasticsearch, look for the Account.zip
-`wget https://download.elastic.co/demos/kibana/gettingstarted/accounts.zip`
-`unzip account.zip`
-`curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/bank/account/_bulk?pretty' --data-binary @accounts.json`
+### Create test data  
+download sample data from elasticsearch, look for the Account.zip  
+`wget https://download.elastic.co/demos/kibana/gettingstarted/accounts.zip`  
+`unzip account.zip`  
+`curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/bank/account/_bulk?pretty' --data-binary @accounts.json`  
 
 ### make sure you have path.repo setup in your elasticsearch config
 Please refer to the ES reference document

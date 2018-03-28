@@ -20,17 +20,17 @@ document presents in => 2 and position => 2
 Program => 2 times (the term program appears 2 times in all 3 documents
 
 ### In the RDBMS case
-Key 1 => Document 1
-Key 2 => Document 2
-Key 3 => Document 3
+Key 1 => Document 1  
+Key 2 => Document 2  
+Key 3 => Document 3  
 
 ## Aggregate query 
 
-RDBMS have to gather all the documents before it can aggregate the result.
-Select * from Documents WHERE document contains the word "Program"
-VS
-Inverted Index already indexed the answer : 2
+RDBMS have to gather all the documents before it can aggregate the result.  
+Select * from Documents WHERE document contains the word "Program"  
+VS  
+Inverted Index already indexed the answer : 2  
 
-Imagine we are querying against a table with 1 billion rows.
+Imagine we are querying against a table with 1 billion rows.  
 
-Which approach is faster? The answer is very apparent. The inverted index.
+Which approach is faster? The answer is very apparent. The inverted index.  

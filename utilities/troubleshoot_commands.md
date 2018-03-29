@@ -38,3 +38,8 @@ dd if=/tmp/tempfile of=/dev/null bs=1M count=1024
 <pre>
 df -h
 </pre>
+
+### directory space check
+<pre>
+du --max-depth=1 -h
+</pre>

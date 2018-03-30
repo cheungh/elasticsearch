@@ -27,7 +27,16 @@ When it fills up, the documents in the buffer are written to a segment on disk.
 It is divided between all shards on the node.
 </p>
 
-### Clear cache
+### FieldData cache 
+<p>
+Quoted from ES Official doc: "The field data cache is used mainly when sorting on or computing aggregations on a field..."  
+It need enough memory to do this job otherwise it will be really expensive to build. 
+</p>
+#### Need to watch for these settings
+<pre>
+indices.fielddata.cache.size.  
+Note from ES: reloading the field data which does not fit into your cache will be expensive and perform poorly.   
 
-
-### The field data cache
+indices.breaker.fielddata.limit  
+check and balance! We don't want this cache use up all the memory on the node.  
+</pre>

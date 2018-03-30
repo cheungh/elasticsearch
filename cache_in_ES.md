@@ -1,5 +1,12 @@
 ### Node query cache
-
+<pre>
+1. query result cache -- only apply to filter context
+2. There is one queries cache per node that is shared by all shards
+3. LRU eviction policy -- when it reaches limit, the oldest used data will be evicted for new data
+4. cluster data node setting -- indices.queries.cache.size: 5%
+5. index level setting -- index.queries.cache.enabled: [true|false]
+6. cluster api call -- curl -XGET "http://localhost:9200/_nodes/stats/indices/query_cache?pretty" 
+</pre>
 
 ### Shard request cache
 <p>

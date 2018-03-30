@@ -10,6 +10,9 @@
 
 ### Shard request cache
 <p>
+Shard request cache is responsible for caching the local results of each shard. This is used for heavy aggregation.
+  It is turned on by default.<br>
+  indices.requests.cache.size: 2%<br>
 Quoted from ES:
 "When a search request is run against an index or against many indices, 
 each involved shard executes the search locally and returns its local results to the coordinating node, 

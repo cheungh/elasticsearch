@@ -16,7 +16,15 @@ systemctl status elasticsearch.service
 htop
 top
 
+### check firewall rule
+<pre>
+some time firewalld block the ES communication zen discovery port 
+firewall-cmd --zone=external --list-all  
 
+Just run curl master_node_ip:9200 to see if you can connect to master
+or stop firewall running
+sudo systemctl stop firewalld
+</pre>
 ### disk write speed check
 delete the /tmp/tempfile afterward!
 <pre>

@@ -25,6 +25,13 @@ Just run curl master_node_ip:9200 to see if you can connect to master
 or stop firewall running
 sudo systemctl stop firewalld
 </pre>
+
+### check log referred to ES config log4j2.properties
+<pre>
+1. check ES log for error
+2. change log level to see more detail log4j2.properties
+3. check slow log for trouble index
+</pre>
 ### disk write speed check
 delete the /tmp/tempfile afterward!
 <pre>

@@ -31,5 +31,18 @@ For large 64 bit OS with over 64G memory: this should set to 31GB.
 The node is about to be out of disk. 
 ES cluster will move data to another node resulting in an unbalanced Shards cluster.
 
+### Reindex 
+It is the ES tool to copy from one to another 
+copy index from one to another  
+can copy from remote host
+
+### refresh
+<p>The refresh API allows to explicitly refresh one or more index, making all operations performed since the last refresh available for search. <br>
+ API call: curl -XPOST 'localhost:9200/bank_account/_refresh?pretty'
+ </p>
+
+### flush
+ES Doc: "frees memory from the index by flushing data to the index storage and clearing the internal transaction log."
+
 ## To Be Continue ...
  

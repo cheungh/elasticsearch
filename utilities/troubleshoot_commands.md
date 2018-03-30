@@ -32,6 +32,7 @@ sudo systemctl stop firewalld
 2. change log level to see more detail log4j2.properties
 3. check slow log for trouble index
 </pre>
+<p>check my tuning tips at https://github.com/cheungh/elasticsearch/blob/master/Tuning.md</p>
 ### disk write speed check
 delete the /tmp/tempfile afterward!
 <pre>

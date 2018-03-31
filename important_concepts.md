@@ -54,6 +54,14 @@ node3 with: node.rack_id:rack_2 <br>
 node4 with: node.rack_id:rack_2 <br>
 </p>
 
+### index default settings
+<pre>
+Most important default settings are not associated with any specific index module 
+index.number_of_replicas: 1
+index.number_of_shards:5
+index.refresh_interval: 60
+index.max_result_window: 2000 -- too high will result in using heap memory
+</pre>
 
 ## To Be Continue ...
  

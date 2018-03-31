@@ -44,5 +44,16 @@ can copy from remote host
 ### flush
 ES Doc: "frees memory from the index by flushing data to the index storage and clearing the internal transaction log."
 
+### shard allocation awareness
+<p>It ensures the primary shard and its replica shards are spread across different physical servers, racks, or zones, to minimise the risk of losing all shard copies at the same time. ES will allocate the shards evenly on different rack. So <br>
+e.g. 
+cluster.routing.allocation.awareness.attributes: rack_id<br> 
+node1 with: node.rack_id:rack_1 <br>
+node2 with: node.rack_id:rack_1 <br>
+node3 with: node.rack_id:rack_2 <br>
+node4 with: node.rack_id:rack_2 <br>
+</p>
+
+
 ## To Be Continue ...
  

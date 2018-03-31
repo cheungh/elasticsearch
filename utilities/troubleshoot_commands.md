@@ -16,6 +16,12 @@ systemctl status elasticsearch.service
 htop
 top
 
+### ES hot threads API
+http://localhost:9200/_nodes/hot_threads
+
+### ES Pending tasks API
+http://localhost:9200/_cluster/pending_tasks
+
 ### check firewall rule
 <pre>
 some time firewalld block the ES communication zen discovery port 

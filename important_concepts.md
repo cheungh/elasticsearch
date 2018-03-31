@@ -63,5 +63,24 @@ index.refresh_interval: 60
 index.max_result_window: 2000 -- too high will result in using heap memory
 </pre>
 
+### How would the master reacts When a node leaves the cluster for whatever reason:
+<pre>
+1. Promoting a replica shard to primary to replace any primaries that were on the missing node.
+2. Allocating replica shards to replace the missing replicas (assuming there are enough nodes).
+3. Rebalancing shards evenly across the remaining nodes.
+
+default setting 1m
+index.unassigned.node_left.delayed_timeout
+
+if the node is not going to return:
+run:
+PUT _all/_settings
+{
+  "settings": {
+    "index.unassigned.node_left.delayed_timeout": "0"
+  }
+}
+</pre>
+
 ## To Be Continue ...
  

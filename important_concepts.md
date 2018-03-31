@@ -16,7 +16,6 @@ Note from ES: reloading the field data which does not fit into your cache will b
 indices.breaker.fielddata.limit  
 check and balance! We don't want this cache use up all the memory on the node.  
 </pre>
-
 ### Heap Size
 This is how much memory Elasticsearch is using
 <pre>
@@ -26,21 +25,17 @@ System will get very slow and users will have bad experience encountering circui
 
 For large 64 bit OS with over 64G memory: this should set to 31GB.
 </pre>
-
 ### high disk watermark warning
 The node is about to be out of disk. 
 ES cluster will move data to another node resulting in an unbalanced Shards cluster.
-
 ### Reindex 
 It is the ES tool to copy from one to another 
 copy index from one to another  
 can copy from remote host
-
 ### refresh
 <p>The refresh API allows to explicitly refresh one or more index, making all operations performed since the last refresh available for search. <br>
  API call: curl -XPOST 'localhost:9200/bank_account/_refresh?pretty'
  </p>
-
 ### flush
 ES Doc: "frees memory from the index by flushing data to the index storage and clearing the internal transaction log."
 
@@ -53,7 +48,6 @@ node2 with: node.rack_id:rack_1 <br>
 node3 with: node.rack_id:rack_2 <br>
 node4 with: node.rack_id:rack_2 <br>
 </p>
-
 ### Rolling restart or hardware upgrade
 <pre>
 - prevent shard allocation (otherwise ES will allocate shard accross other nodes
@@ -63,7 +57,6 @@ PUT /_cluster/settings
         "cluster.routing.allocation.enable" : "none"
     }
 }
-
 - restart a single node -- let say memory upgrade, network card upgrade, add harddrive
 a. stop service
 b. perform upgrade
@@ -72,6 +65,8 @@ c. start ES service
 - restart all nodes by rack_id group (this is roll restart step)
 Let say you have 3 rack ids in your grade: (a) rack_1, (b) rack_2, (c) rack_3
 start rack_1 group first, then rack_2, then rack_3
+
+- confirm all nodes have joined the cluster
 
 - re-enable shard allocation:
 PUT /_cluster/settings

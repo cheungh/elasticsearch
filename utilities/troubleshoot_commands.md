@@ -3,6 +3,7 @@ I installed ES via rpm
 <pre>
 systemctl stop elasticsearch.service && tail -f /var/log/elasticsearch/elasticsearch.log
 systemctl start elasticsearch.service && tail -f /var/log/elasticsearch/elasticsearch.log
+startup script located in (Centos7): /usr/lib/systemd/system/elasticsearch.service
 </pre>
 
 ### process check for elasticsearch

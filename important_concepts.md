@@ -54,6 +54,34 @@ node3 with: node.rack_id:rack_2 <br>
 node4 with: node.rack_id:rack_2 <br>
 </p>
 
+### Rolling restart or hardware upgrade
+<pre>
+- prevent shard allocation (otherwise ES will allocate shard accross other nodes
+PUT /_cluster/settings
+{
+    "transient" : {
+        "cluster.routing.allocation.enable" : "none"
+    }
+}
+
+- restart a single node -- let say memory upgrade, network card upgrade, add harddrive
+a. stop service
+b. perform upgrade
+c. start ES service 
+
+- restart all nodes by rack_id group (this is roll restart step)
+Let say you have 3 rack ids in your grade: (a) rack_1, (b) rack_2, (c) rack_3
+start rack_1 group first, then rack_2, then rack_3
+
+- re-enable shard allocation:
+PUT /_cluster/settings
+{
+    "transient" : {
+        "cluster.routing.allocation.enable" : "all"
+    }
+}
+
+</pre>
 ### index default settings
 <pre>
 Most important default settings are not associated with any specific index module 
@@ -79,6 +107,19 @@ PUT _all/_settings
   "settings": {
     "index.unassigned.node_left.delayed_timeout": "0"
   }
+}
+</pre>
+
+### Cluster Update Settings
+<pre>
+1. persistent (applied across restarts) 
+2. transient (will not survive a full cluster restart)
+
+curl -XGET 'localhost:9200/_cluster/settings?pretty'
+return:
+{
+  "persistent": {},
+  "transient": {}
 }
 </pre>
 

@@ -12,3 +12,10 @@
 <p>10.	Set circuit breaker limit: query existing quota via http://localhost:9200/_nodes/stats/breaker</p>
 <p>11.	Query cache: http://localhost:9200/_nodes/stats/indices/query_cache</p>
 <p>12.	http://localhost:9200/_nodes/stats/indices/request_cache</p>
+<p>13. Segment API: information on index segments stats (e.g. "num_docs": 190, "deleted_docs": 7,"size_in_bytes": 95944)<br>
+ This query will query against the bank index: http://localhost:9200/bank/_segments
+</p>
+<p>
+14. cluster state api gives quick summary of the ES cluster: http://localhost:9200/_cluster/state  
+</p>
+<p>15. node api gives ES cluster node level information: http://localhost:9200/_nodes?pretty

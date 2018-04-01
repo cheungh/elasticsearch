@@ -8,7 +8,8 @@ from https://github.com/cheungh/elasticsearch/blob/master/Inverted_index.md</p>
 Quoted from ES Official doc: "The field data cache is used mainly when sorting on or computing aggregations on a field..."  
 It need enough memory to do this job otherwise it will be really expensive to build. 
 </p>
-#### Need to watch for these settings
+
+### Need to watch for these settings
 <pre>
 indices.fielddata.cache.size.  
 Note from ES: reloading the field data which does not fit into your cache will be expensive and perform poorly.   
@@ -16,6 +17,7 @@ Note from ES: reloading the field data which does not fit into your cache will b
 indices.breaker.fielddata.limit  
 check and balance! We don't want this cache use up all the memory on the node.  
 </pre>
+
 ### Heap Size
 This is how much memory Elasticsearch is using
 <pre>
@@ -25,17 +27,21 @@ System will get very slow and users will have bad experience encountering circui
 
 For large 64 bit OS with over 64G memory: this should set to 31GB.
 </pre>
+
 ### high disk watermark warning
 The node is about to be out of disk. 
 ES cluster will move data to another node resulting in an unbalanced Shards cluster.
+
 ### Reindex 
 It is the ES tool to copy from one to another 
 copy index from one to another  
 can copy from remote host
+
 ### refresh
 <p>The refresh API allows to explicitly refresh one or more index, making all operations performed since the last refresh available for search. <br>
  API call: curl -XPOST 'localhost:9200/bank_account/_refresh?pretty'
- </p>
+</p>
+ 
 ### flush
 ES Doc: "frees memory from the index by flushing data to the index storage and clearing the internal transaction log."
 
@@ -48,6 +54,7 @@ node2 with: node.rack_id:rack_1 <br>
 node3 with: node.rack_id:rack_2 <br>
 node4 with: node.rack_id:rack_2 <br>
 </p>
+
 ### Rolling restart or hardware upgrade
 <pre>
 1. prevent shard allocation (otherwise ES will allocate shard accross other nodes
@@ -73,6 +80,7 @@ PUT /_cluster/settings
     }
 }
 </pre>
+
 ### index default settings
 <pre>
 Most important default settings are not associated with any specific index module 

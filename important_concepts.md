@@ -50,32 +50,28 @@ node4 with: node.rack_id:rack_2 <br>
 </p>
 ### Rolling restart or hardware upgrade
 <pre>
-- prevent shard allocation (otherwise ES will allocate shard accross other nodes
+1. prevent shard allocation (otherwise ES will allocate shard accross other nodes
 PUT /_cluster/settings
 {
     "transient" : {
         "cluster.routing.allocation.enable" : "none"
     }
 }
-- restart a single node -- let say memory upgrade, network card upgrade, add harddrive
-a. stop service
-b. perform upgrade
-c. start ES service 
-
-- restart all nodes by rack_id group (this is roll restart step)
+2. restart a single node -- let say memory upgrade, network card upgrade, add harddrive
+ a. stop service
+ b. perform upgrade
+ c. start ES service 
+3. restart all nodes by rack_id group (this is roll restart step)
 Let say you have 3 rack ids in your grade: (a) rack_1, (b) rack_2, (c) rack_3
 start rack_1 group first, then rack_2, then rack_3
-
-- confirm all nodes have joined the cluster
-
-- re-enable shard allocation:
+4. confirm all nodes have joined the cluster
+5. re-enable shard allocation:
 PUT /_cluster/settings
 {
     "transient" : {
         "cluster.routing.allocation.enable" : "all"
     }
 }
-
 </pre>
 ### index default settings
 <pre>

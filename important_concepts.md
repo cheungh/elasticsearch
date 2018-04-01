@@ -126,5 +126,19 @@ return:
 }
 </pre>
 
+### force merge
+<pre>
+
+</pre>
+
+### refresh_interval
+
+<pre>
+The default index.refresh_interval is 1s, 
+which forces Elasticsearch to create a new segment every second. 
+Increasing this value (to say, 30s, if you don't need close to real time data) 
+will allow larger segments to flush and decreases future merge pressure.
+</pre>
+
 ## To Be Continue ...
  

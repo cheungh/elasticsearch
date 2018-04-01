@@ -89,3 +89,23 @@ curl -XGET "http://localhost:9200/bank/_count" -H 'Content-Type: application/jso
   }
 }'
 </pre>
+
+### Important!!! Never delete snapshot by other methods.
+
+#### 1.Snapshot(s) only store delta exact for the first one
+<p>Quoted from ES, "This process will take the current state and data in your cluster and save it to a shared repository. This backup process is "smart." Your first snapshot will be a complete copy of data, but all subsequent snapshots will save the delta between the existing snapshots and the new data. Data is incrementally added and deleted as you snapshot data over time. This means subsequent backups will be substantially faster since they are transmitting far less data."
+</p>
+#### 2. Never delete snapshot by other mechanism otherwise likely cause corrupt backup snapshot
+<pre>
+Quoted from Elasticsearch:
+"It is important to use the API to delete snapshots, and not some other mechanism 
+(such as deleting by hand, or using automated cleanup tools on S3). 
+Because snapshots are incremental, it is possible that many snapshots are relying on old segments. 
+The delete API understands what data is still in use 
+by more recent snapshots, and will delete only unused segments.
+
+If you do a manual file delete, 
+however, you are at risk of seriously corrupting 
+your backups because you are deleting data that is still in use."
+
+</pre>

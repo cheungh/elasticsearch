@@ -3,6 +3,15 @@
 <p>That is what make ES fast, see the simple explanation 
 from https://github.com/cheungh/elasticsearch/blob/master/Inverted_index.md</p>
 
+### Secure your other index with allow_explicit_index = false
+<pre>
+Quoted from ES, 
+"Many users use a proxy with URL-based access control to secure access to Elasticsearch indices
+...
+The default value is true, but when set to false, 
+Elasticsearch will reject requests that have an explicit index specified in the request body.
+rest.action.multi.allow_explicit_index: false
+</pre>
 ### FieldData cache 
 <p>
 Quoted from ES Official doc: "The field data cache is used mainly when sorting on or computing aggregations on a field..."  

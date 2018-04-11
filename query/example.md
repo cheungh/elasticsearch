@@ -205,7 +205,7 @@ GET /mytest_index/_search
     }
   },
   "aggs": {
-    "hwid": {
+    "id": {
       "terms": {
         "size":1000,
         "field": "industry"
@@ -214,7 +214,7 @@ GET /mytest_index/_search
   }
 }
 
-### 3 unique count hwid example
+### 3 unique count id example
 GET /mytest_index/_search?request_cache=false
 {
   "size":0,
@@ -369,7 +369,7 @@ GET /mytest_index/_search
     }
   },
   "aggs": {
-    "hwid": {
+    "id": {
       "terms": {
         "size":1000,
         "field": "my-id"
@@ -467,7 +467,7 @@ GET /mytest_index/_search
     }
   },
   "aggs": {
-    "hwid": {
+    "id": {
       "terms": {
         "size":1000,
         "field": "industry"
